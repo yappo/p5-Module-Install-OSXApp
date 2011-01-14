@@ -58,7 +58,19 @@ Module::Install::OSXApp -
 
 =head1 SYNOPSIS
 
-  use Module::Install::OSXApp;
+  # in your Makefile.PL
+  use inc::Module::Install;
+  name 'Foo';
+  all_from 'lib/Foo.pm';
+
+  osx_app(
+      name   => 'HDK48',
+      script => 'hdk48.pl',
+  );
+
+  WriteAll;
+
+  $ make osxapp
 
 =head1 DESCRIPTION
 
